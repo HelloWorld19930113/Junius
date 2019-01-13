@@ -80,6 +80,8 @@ laerning_rate = tf.train.exponential_decay(learning_rate,training_step,mnist.tra
 #使用GradientDescentOptimizer优化算法来优化交叉熵损失和正则化损失
 train_step= tf.train.GradientDescentOptimizer(learning_rate).minimize(loss,global_step=training_step)
 
+#train_step= tf.train.AdagradDAOptimizer(learning_rate).minimize(loss,global_step=training_step)
+
 # 在训练这个模型时，每过一遍数据既需要通过反向传播来更新神经网络中的参数又需要
 # 更新每一个参数的滑动平均值，control_dependencies()用于完成这样的一次性多次操作，
 # 同样的操作也可以使用下面这行代码完成：
